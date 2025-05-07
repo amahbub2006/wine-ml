@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Wine Quality Prediction</title>
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="static/css/styles.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            margin-top: -100px;
+        }
+        header {
+            background-image: url('static/assets/img/wine.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            position: relative;
+        }
+        .header-text {
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+            padding-top: 100px;
+        }
+        .form-label {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">Wine App</a>
+    </div>
+</nav>
+
+<header>
+    <div class="container text-center header-text">
+        <h1 class="display-5 fw-bold">Wine Quality Predictor</h1>
+        <p class="lead">Enter chemical properties to predict wine quality</p>
+    </div>
+</header>
+
+<div class="container form-container mt-5">
+    <form action="/predict" method="POST">
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <label for="fixed_acidity" class="form-label">Fixed Acidity</label>
+                <input type="text" class="form-control" id="fixed_acidity" name="fixed_acidity" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="volatile_acidity" class="form-label">Volatile Acidity</label>
+                <input type="text" class="form-control" id="volatile_acidity" name="volatile_acidity" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="citric_acid" class="form-label">Citric Acid</label>
+                <input type="text" class="form-control" id="citric_acid" name="citric_acid" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="residual_sugar" class="form-label">Residual Sugar</label>
+                <input type="text" class="form-control" id="residual_sugar" name="residual_sugar" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="chlorides" class="form-label">Chlorides</label>
+                <input type="text" class="form-control" id="chlorides" name="chlorides" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="free_sulfur_dioxide" class="form-label">Free Sulfur Dioxide</label>
+                <input type="text" class="form-control" id="free_sulfur_dioxide" name="free_sulfur_dioxide" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="total_sulfur_dioxide" class="form-label">Total Sulfur Dioxide</label>
+                <input type="text" class="form-control" id="total_sulfur_dioxide" name="total_sulfur_dioxide" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="density" class="form-label">Density</label>
+                <input type="text" class="form-control" id="density" name="density" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="pH" class="form-label">pH</label>
+                <input type="text" class="form-control" id="pH" name="pH" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="sulphates" class="form-label">Sulphates</label>
+                <input type="text" class="form-control" id="sulphates" name="sulphates" required>
+            </div>
+
+            <div class="col-md-12">
+                <label for="alcohol" class="form-label">Alcohol</label>
+                <input type="text" class="form-control" id="alcohol" name="alcohol" required>
+            </div>
+
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary btn-lg mt-3">Predict Quality</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<footer class="mt-5 border-top py-4">
+    <div class="container text-center">
+        <small class="text-muted">© 2025 Azfar Mahbub</small>
+        <div class="mt-2">
+            <a href="https://www.linkedin.com/in/azfar-mahbub-396008312/" class="text-decoration-none mx-2">LinkedIn</a>
+            <a href="https://github.com/amahbub2006" class="text-decoration-none mx-2">GitHub</a>
+            <a href="https://youtube.com/" class="text-decoration-none mx-2">YouTube</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
