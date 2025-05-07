@@ -32,7 +32,8 @@ class DataIngestion:
         os.makedirs(unzip_path, exist_ok=True)
 
         with zipfile.ZipFile(self.config.local_data_file, 'r') as zip_ref:
-            zip_ref.extractall(unzip_path)
+            zip_ref.extractall(
+                unzip_path)
 
         logger.info(f"Data extracted to: {unzip_path}")
 
