@@ -49,8 +49,8 @@ def index():
             return render_template('results.html', prediction = str(predict))
 
         except Exception as e:
-            print('The Exception message is: ',e)
-            return 'something is wrong'
+            return f"Error: {e}"
+
 
     else:
         return render_template('index.html')
