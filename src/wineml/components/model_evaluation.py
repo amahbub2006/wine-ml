@@ -22,7 +22,7 @@ class ModelEvaluation:
     
     def save_results(self):
 
-        test_data = pd.read_csv(self.config.test_data_path)
+        test_data = pd.read_csv(self.config.test_data_path).drop("Id", axis=1)
         model = joblib.load(self.config.model_path)
 
         test_x = test_data.drop([self.config.target_column], axis=1)
