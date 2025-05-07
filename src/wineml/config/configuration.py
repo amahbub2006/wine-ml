@@ -2,7 +2,7 @@ from pathlib import Path
 from box import ConfigBox
 from wineml.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH, SCHEMA_FILE_PATH
 from wineml.utils.common import read_yaml, create_directories
-from wineml.entity.config_entity import (DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig)
+from wineml.entity.config_entity import (DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig, ModelEvaluationConfig)
 
 
 class ConfigurationManager:
@@ -78,3 +78,24 @@ class ConfigurationManager:
             l1_ratio=params.l1_ratio,
             target_column=self.params.target_column
     )
+
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config = self.config.model_evaluation
+        params = self.params.ElasticNet
+
+        schema = self.schema.TARGET_COLUMN if self.schema else {}
+        target_column = schema.get("name", "quality")  # fallback to 'quality'
+
+        create_directories([Path(config.root_dir)])
+
+        return ModelEvaluationConfig(
+            root_dir=Path(config.root_dir),
+            test_data_path=Path(config.test_data_path),
+            model_path=Path(config.model_path),
+            all_params=params,
+            metric_file_name=config.metric_file_name,
+            target_column=target_column
+    )
+
+
+        return model_evaluation_config

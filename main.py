@@ -5,7 +5,7 @@ from wineml.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipelin
 from wineml.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
 from wineml.pipeline.stage_03_data_transformation import DataTransformationTrainingPipeline
 from wineml.pipeline.stage_04_model_trainer import ModelTrainerTrainingPipeline
-
+from wineml.pipeline.stage_05_model_evaluation import ModelEvaluationTrainingPipeline
 
 config = ConfigurationManager()
 data_ingestion_config = config.get_data_ingestion_config()
@@ -55,3 +55,14 @@ try:
 except Exception as e:
     logger.exception(e)
     raise e
+
+#stage 5: Model Evaluation
+STAGE_NAME = "Model evaluation stage"
+try:
+        logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
+        data_ingestion = ModelEvaluationTrainingPipeline()
+        data_ingestion.main()
+        logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+        logger.exception(e)
+        raise e
